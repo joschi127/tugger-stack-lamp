@@ -1,0 +1,39 @@
+{
+  "app": {
+    "name": "s5-distribution",
+    "db_name": "s5",
+    "server_name": "s5-distribution.local",
+    "server_aliases": [ "www.s5-distribution.local" ],
+    "docroot": "/var/www/s5-distribution/web",
+    "packages": [ "vim", "git", "screen", "curl", "imagemagick" ]
+  },
+  "mysql": {
+    "server_root_password": "root",
+    "server_repl_password": "root",
+    "server_debian_password": "root",
+    "bind_address": "127.0.0.1",
+    "allow_remote_root": false
+  },
+  "postgresql": {
+    "password": "root",
+    "users": [
+      {
+        "username": "root",
+        "password": "root",
+        "superuser": true,
+        "createdb": true,
+        "login": true
+      }
+    ]
+  },
+  "php": {
+    "dotdeb_distribution": "wheezy-php55"
+  },
+  "run_list": [
+    "recipe[app::packages]",
+    "recipe[app::web_server]",
+    "recipe[app::vhost]",
+    "recipe[memcached]",
+    "recipe[app::db]"
+  ]
+}
