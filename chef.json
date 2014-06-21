@@ -15,7 +15,9 @@
     "allow_remote_root": false
   },
   "postgresql": {
-    "password": "root",
+    "password": {
+      "postgres": "root"
+    },
     "users": [
       {
         "username": "root",
@@ -27,7 +29,8 @@
     ]
   },
   "php": {
-    "dotdeb_distribution": "wheezy-php55"
+    "dotdeb_distribution": "wheezy-php55",
+    "tmpfs": false
   },
   "run_list": [
     "recipe[app::packages]",
