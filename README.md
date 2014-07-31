@@ -69,3 +69,10 @@ To show all containers, including stopped containers: (add `-s` to show the size
 To show the processes in a running container you can use:
 
     docker top projectname
+
+Find IP of running container
+----------------------------
+
+To find the IP of a container you can use:
+
+    docker inspect projectname | grep IPAddress
