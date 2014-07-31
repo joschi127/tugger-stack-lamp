@@ -13,11 +13,11 @@ include_recipe "apache2::mod_rewrite"
 include_recipe "apache2::mod_ssl"
 
 # Set apache run user
-#bash "set-apache-run-user" do
-#  notifies :stop, resources("service[apache2]")
-#  code "sed -i -r -e 's/User www-data/User vagrant/g' -e 's/Group www-data/Group vagrant/g' /etc/apache2/apache2.conf; sed -i -r -e 's/APACHE_RUN_USER=www-data/APACHE_RUN_USER=vagrant/g' -e 's/APACHE_RUN_GROUP=www-data/APACHE_RUN_GROUP=vagrant/g' /etc/apache2/envvars; chown -R vagrant /run/lock/apache2"
-#  notifies :start, resources("service[apache2]"), :delayed
-#end
+bash "set-apache-run-user" do
+  notifies :stop, resources("service[apache2]")
+  code "sed -i -r -e 's/User www-data/User webserver/g' -e 's/Group www-data/Group webserver/g' /etc/apache2/apache2.conf; sed -i -r -e 's/APACHE_RUN_USER=www-data/APACHE_RUN_USER=webserver/g' -e 's/APACHE_RUN_GROUP=www-data/APACHE_RUN_GROUP=webserver/g' /etc/apache2/envvars; chown -R webserver /run/lock/apache2"
+  notifies :start, resources("service[apache2]"), :delayed
+end
 
 # Install PHP
 directory "/etc/php5/conf.d" do
@@ -37,7 +37,7 @@ include_recipe "php::module_mbstring"
 include_recipe "php::module_mcrypt"
 include_recipe "php::module_memcache"
 include_recipe "php::module_mysql"
-include_recipe "php::module_pgsql"
+#include_recipe "php::module_pgsql"
 include_recipe "php::module_curl"
 include_recipe "php::module_xml"
 include_recipe "php::module_soap"

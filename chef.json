@@ -8,20 +8,20 @@
     "packages": [ "vim", "git", "screen", "curl", "imagemagick" ]
   },
   "mysql": {
-    "server_root_password": "root",
-    "server_repl_password": "root",
-    "server_debian_password": "root",
+    "server_root_password": "qweqwe",
+    "server_repl_password": "qweqwe",
+    "server_debian_password": "qweqwe",
     "bind_address": "127.0.0.1",
     "allow_remote_root": false
   },
   "postgresql": {
     "password": {
-      "postgres": "root"
+      "postgres": "qweqwe"
     },
     "users": [
       {
         "username": "root",
-        "password": "root",
+        "password": "qweqwe",
         "superuser": true,
         "createdb": true,
         "login": true

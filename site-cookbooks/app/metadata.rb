@@ -12,7 +12,7 @@ depends "composer"
 depends "apt"
 depends "openssl"
 depends "mysql"
-depends "postgresql"
+#depends "postgresql"
 
 %w{ debian ubuntu }.each do |os|
   supports os
