@@ -20,36 +20,36 @@ Create and run new container
 
 To create a container running the image use the following command:
 
-    docker run --name my_project_name --hostname my_project_name -v $(dirname $(pwd)):/var/www/webproject/ -i -t docker_lamp_stack /bin/bash /var/www/webproject/Docker/init.sh --provision
+    docker run --name projectname --hostname projectname -v $(dirname $(pwd)):/var/www/webproject/ -i -t docker_lamp_stack /bin/bash /var/www/webproject/Docker/init.sh --provision
 
 Save the state as image:
 
-    docker commit my_project_name my_project_name_image
+    docker commit projectname projectname_image
 
 Run again from saved state:
 
-    docker run --name my_project_name --hostname my_project_name -v $(dirname $(pwd)):/var/www/webproject/ -i -t my_project_name_image /bin/bash /var/www/webproject/Docker/init.sh
+    docker run --name projectname --hostname projectname -v $(dirname $(pwd)):/var/www/webproject/ -i -t projectname_image /bin/bash /var/www/webproject/Docker/init.sh
 
 Stop running container
 ----------------------
 
 To stop a running container use:
 
-    docker stop my_project_name
+    docker stop projectname
 
 Start existing container
 ------------------------
 
 To restart an existing container use:
 
-    docker start -i my_project_name
+    docker start -i projectname
 
 Delete container
 ----------------
 
 To delete a container:
 
-    docker rm my_project_name
+    docker rm projectname
 
 Show running containers and running processes
 ---------------------------------------------
@@ -68,4 +68,4 @@ To show all containers, including stopped containers: (add `-s` to show the size
 
 To show the processes in a running container you can use:
 
-    docker top my_project_name
+    docker top projectname
