@@ -2,6 +2,7 @@
   "app": {
     "name": "s5-distribution",
     "db_name": "s5",
+    "db_dump": "/var/www/s5-distribution/db_dump.sql",
     "server_name": "s5-distribution.local",
     "server_aliases": [ "www.s5-distribution.local" ],
     "docroot": "/var/www/s5-distribution/web",
