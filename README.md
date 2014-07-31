@@ -20,7 +20,7 @@ Create and run new container
 
 To create a container running the image use the following command:
 
-    docker run --name my_project_name --hostname my_project_name -v $(dirname $(pwd)):/var/www/my_project_name/ -i -t docker_lamp_stack /bin/bash /var/www/my_project_name/Docker/init.sh --provision
+    docker run --name my_project_name --hostname my_project_name -v $(dirname $(pwd)):/var/www/webproject/ -i -t docker_lamp_stack /bin/bash /var/www/webproject/Docker/init.sh --provision
 
 Save the state as image:
 
@@ -28,7 +28,7 @@ Save the state as image:
 
 Run again from saved state:
 
-    docker run --name my_project_name --hostname my_project_name -v $(dirname $(pwd)):/var/www/my_project_name/ -i -t my_project_name_image /bin/bash /var/www/my_project_name/Docker/init.sh
+    docker run --name my_project_name --hostname my_project_name -v $(dirname $(pwd)):/var/www/webproject/ -i -t my_project_name_image /bin/bash /var/www/webproject/Docker/init.sh
 
 Stop running container
 ----------------------
