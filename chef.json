@@ -1,11 +1,11 @@
 {
   "app": {
-    "name": "s5-distribution",
-    "db_name": "s5",
-    "db_dump": "/var/www/s5-distribution/db_dump.sql",
-    "server_name": "s5-distribution.local",
-    "server_aliases": [ "www.s5-distribution.local" ],
-    "docroot": "/var/www/s5-distribution/web",
+    "name": "my_project_name",
+    "db_name": "my_project_name",
+    "db_dump": "/var/www/my_project_name/db_dump.sql",
+    "server_name": "my_project_name.local",
+    "server_aliases": [ "www.my_project_name.local" ],
+    "docroot": "/var/www/my_project_name/web",
     "packages": [ "vim", "git", "screen", "curl", "imagemagick" ]
   },
   "mysql": {

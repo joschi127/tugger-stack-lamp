@@ -1,30 +1,39 @@
 Docker LAMP Stack
 =================
 
-A simple LAMP stack designed for running a local development environment
-for Apache, MySQL, PHP in a Docker container.
+A simple LAMP stack designed for running a local development environment for Apache, MySQL, PHP in a Docker container.
 
-It is based on a Debian image and will use chef-solo / berkshelf
-provisioning to setup the web server environment.
+It is based on a Debian image and will use chef-solo / berkshelf provisioning to setup the web server environment.
 
-Build image
------------
+Build Docker image
+------------------
 
 To build the image from the Dockerfile run:
 
     docker build -t docker_lamp_stack .
 
-Create and run new container image
-----------------------------------
+This has to be done once only. You can use the created Docker image for several projects by creating one container
+per project.
+
+Create and run new container
+----------------------------
 
 To create a container running the image use the following command:
 
-    docker run --name my_project_name -v $(dirname $(pwd)):/var/www/s5-distribution/ -i -t docker_lamp_stack /bin/bash -c "/etc/init.d/mysql restart; /etc/init.d/apache2 restart; su webserver -l"
+    docker run --name my_project_name --hostname my_project_name -v $(dirname $(pwd)):/var/www/my_project_name/ -i -t docker_lamp_stack /bin/bash /var/www/my_project_name/Docker/init.sh --provision
 
-Stop container
---------------
+Save the state as image:
 
-To stop the running container use:
+    docker commit my_project_name my_project_name_image
+
+Run again from saved state:
+
+    docker run --name my_project_name --hostname my_project_name -v $(dirname $(pwd)):/var/www/my_project_name/ -i -t my_project_name_image /bin/bash /var/www/my_project_name/Docker/init.sh
+
+Stop running container
+----------------------
+
+To stop a running container use:
 
     docker stop my_project_name
 
@@ -33,7 +42,7 @@ Start existing container
 
 To restart an existing container use:
 
-    docker start -i my_project_name /bin/bash -c "/etc/init.d/mysql restart; /etc/init.d/apache2 restart; su webserver -l"
+    docker start -i my_project_name
 
 Delete container
 ----------------
@@ -49,10 +58,14 @@ To show the running containers use:
 
     docker ps
 
+To show the latest container, no matter if running or stopped:
+
+    docker ps -l
+
 To show all containers, including stopped containers: (add `-s` to show the size)
 
     docker ps -a
 
-To show the processes in a running counteiner you can use:
+To show the processes in a running container you can use:
 
     docker top my_project_name
