@@ -31,7 +31,10 @@
   },
   "php": {
     "dotdeb_distribution": "wheezy-php55",
-    "tmpfs": false
+    "tmpfs": false,
+    "ini_settings": {
+        "memory_limit": "1536M"
+    }
   },
   "run_list": [
     "recipe[app::packages]",
