@@ -43,6 +43,21 @@ include_recipe "php::module_xml"
 include_recipe "php::module_soap"
 include_recipe "php::module_ldap"
 
+# update the main pear channel
+php_pear_channel 'pear.php.net' do
+  action :update
+end
+
+# pear install xdebug
+php_pear "xdebug" do
+  # Specify that xdebug.so must be loaded as a zend extension
+  zend_extensions ['xdebug.so']
+  action :install
+end
+bash "enable-xdebug" do
+    code "echo 'zend_extension=xdebug.so' > /etc/php5/apache2/conf.d/06-xdebug.ini; echo 'zend_extension=xdebug.so' > /etc/php5/cli/conf.d/06-xdebug.ini;"
+end
+
 # Fix php.ini, do not use disable_functions
 bash "fix-php-ini-disable-functions" do
   code "find /etc/php5/ -name 'php.ini' -exec sed -i -re 's/^(\\s*)disable_functions(.*)/\\1;disable_functions\\2/g' {} \\;"
