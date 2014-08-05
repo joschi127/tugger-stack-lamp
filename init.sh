@@ -17,7 +17,7 @@ D_DIR="$(dirname "$0")"
 D_IP_ADDRESS="$(hostname --ip-address)"
 
 # run chef-solo / berkshelf provisioning
-if [ ! test -e /chef.completed >/dev/null || "$D_REPROVISION" = "1" ]; then
+if ! test -e /chef.completed >/dev/null || [ "$D_REPROVISION" = "1" ]; then
     echo
     echo "Running chef-solo / berkshelf provisioning ..."
     echo
