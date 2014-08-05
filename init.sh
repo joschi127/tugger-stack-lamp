@@ -9,15 +9,15 @@
 set -e
 
 # set variables
-D_PROVISION=0
-if [ "$1" == "--provision" ]; then
-    D_PROVISION=1
+D_REPROVISION=0
+if [ "$1" == "--reprovision" ]; then
+    D_REPROVISION=1
 fi
 D_DIR="$(dirname "$0")"
 D_IP_ADDRESS="$(hostname --ip-address)"
 
 # run chef-solo / berkshelf provisioning
-if [ "$D_PROVISION" = "1" ]; then
+if [ ! test -e /chef.completed >/dev/null || "$D_REPROVISION" = "1" ]; then
     echo
     echo "Running chef-solo / berkshelf provisioning ..."
     echo
@@ -30,6 +30,7 @@ if [ "$D_PROVISION" = "1" ]; then
     echo
     echo "Provisioning completed."
     echo
+    touch /chef.completed
 fi
 
 # start services
