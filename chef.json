@@ -33,7 +33,8 @@
     "dotdeb_distribution": "wheezy-php55",
     "tmpfs": false,
     "ini_settings": {
-        "memory_limit": "1536M"
+        "memory_limit": "1536M",
+        "short_open_tag": "Off"
     }
   },
   "run_list": [
