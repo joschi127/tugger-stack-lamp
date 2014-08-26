@@ -76,3 +76,14 @@ Find IP of running container
 To find the IP of a container you can use:
 
     docker inspect projectname | grep IPAddress
+
+Manage images
+-------------
+
+To show available images use:
+
+    docker images
+
+To delete an image:
+
+    docker rmi projectname_image
