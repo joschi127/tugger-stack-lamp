@@ -42,7 +42,7 @@ Start existing container
 
 To restart an existing container use:
 
-    docker start projectname
+    docker start -i projectname
 
 Delete container
 ----------------
