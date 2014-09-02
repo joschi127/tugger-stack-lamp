@@ -10,8 +10,12 @@ set -e
 
 # set variables
 D_REPROVISION=0
-if [ "$1" == "--reprovision" ]; then
+if [ "$1" == "--reprovision" ] || [ "$2" == "--reprovision" ]; then
     D_REPROVISION=1
+fi
+D_RECREATE_BERKSFILE=0
+if [ "$1" == "--recreate-berksfile" ] || [ "$2" == "--recreate-berksfile" ]; then
+    D_RECREATE_BERKSFILE=1
 fi
 D_DIR="$(dirname "$0")"
 D_IP_ADDRESS="$(hostname --ip-address)"
@@ -24,6 +28,9 @@ if ! test -e /chef.completed >/dev/null || [ "$D_REPROVISION" = "1" ]; then
     rm -rf /chef
     cp -r -Pav "$D_DIR" /chef
     cd /chef
+    if [ "$D_RECREATE_BERKSFILE" = "1" ]; then
+        rm -f Berksfile.lock
+    fi
     /opt/chef/embedded/bin/berks vendor /chef/cookbooks
     chef-solo -c "/chef/chef.rb" -j "/chef/chef.json"
     echo
