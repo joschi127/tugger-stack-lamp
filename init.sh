@@ -24,7 +24,6 @@ if ! test -e /chef.completed >/dev/null || [ "$D_REPROVISION" = "1" ]; then
     rm -rf /chef
     cp -r -Pav "$D_DIR" /chef
     cd /chef
-    rm -f Berksfile.lock
     /opt/chef/embedded/bin/berks vendor /chef/cookbooks
     chef-solo -c "/chef/chef.rb" -j "/chef/chef.json"
     echo
