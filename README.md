@@ -22,14 +22,6 @@ To create a container running the image use the following command:
 
     docker run --name projectname --hostname projectname -v $HOME/.ssh/:/home/webserver/.ssh/ -v $HOME/.gitconfig:/home/webserver/.gitconfig -v $(dirname $(pwd)):/var/www/webproject/ -t docker_lamp_stack /bin/bash /var/www/webproject/Docker/init.sh
 
-Save the state as image:
-
-    docker commit projectname projectname_image
-
-Run again from saved state:
-
-    docker run --name projectname --hostname projectname -v $HOME/.ssh/:/home/webserver/.ssh/ -v $HOME/.gitconfig:/home/webserver/.gitconfig -v $(dirname $(pwd)):/var/www/webproject/ -t projectname_image /bin/bash /var/www/webproject/Docker/init.sh [ --reprovision ]
-
 Stop running container
 ----------------------
 
@@ -79,6 +71,15 @@ To find the IP of a container you can use:
 
 Manage images
 -------------
+
+Save the state of a container as image:
+
+    docker stop projectname
+    docker commit projectname projectname_image
+
+Run again from saved state:
+
+    docker run --name projectname --hostname projectname -v $HOME/.ssh/:/home/webserver/.ssh/ -v $HOME/.gitconfig:/home/webserver/.gitconfig -v $(dirname $(pwd)):/var/www/webproject/ -t projectname_image /bin/bash /var/www/webproject/Docker/init.sh [ --reprovision ]
 
 To show available images use:
 
