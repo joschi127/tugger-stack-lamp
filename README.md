@@ -5,11 +5,22 @@ A simple LAMP stack designed for running a local development environment for Apa
 
 It is based on a Debian image and will use chef-solo / berkshelf provisioning to setup the web server environment.
 
+Install in you project
+----------------------
+
+Clone this repo into a subfolder named `Docker` within your web project's root folder:
+
+    cd /path/to/your-web-project
+    git clone https://github.com/joschi127/docker-lamp-stack.git Docker
+
+If you want to use this for several projects you have to install a copy for each project for now.
+
 Build Docker image
 ------------------
 
 To build the image from the Dockerfile run:
 
+    cd /path/to/your-web-project/Docker
     docker build -t docker_lamp_stack .
 
 This has to be done once only. You can use the created Docker image for several projects by creating one container
@@ -20,6 +31,7 @@ Create and run new container
 
 To create a container running the image use the following command:
 
+    cd /path/to/your-web-project/Docker
     docker run --name projectname --hostname projectname -v $HOME/.ssh/:/home/webserver/.ssh/ -v $HOME/.gitconfig:/home/webserver/.gitconfig -v $(dirname $(pwd)):/var/www/webproject/ -t docker_lamp_stack /bin/bash /var/www/webproject/Docker/init.sh
 
 Stop running container
@@ -79,6 +91,7 @@ Save the state of a container as image:
 
 Run again from saved state:
 
+    cd /path/to/your-web-project/Docker
     docker run --name projectname --hostname projectname -v $HOME/.ssh/:/home/webserver/.ssh/ -v $HOME/.gitconfig:/home/webserver/.gitconfig -v $(dirname $(pwd)):/var/www/webproject/ -t projectname_image /bin/bash /var/www/webproject/Docker/init.sh [ --reprovision ]
 
 To show available images use:
