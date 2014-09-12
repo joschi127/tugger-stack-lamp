@@ -51,7 +51,7 @@ echo "Services started. Server IP is: $D_IP_ADDRESS"
 echo
 echo "To ssh into the container use: ssh webserver@$D_IP_ADDRESS"
 echo
-echo "You can press Ctrl+C now to get back to your console."
+echo "You can press Ctrl+C now to get back to your local console."
 echo
 
 # keep container running forever (or until it is being stopped)
