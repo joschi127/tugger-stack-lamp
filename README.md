@@ -81,6 +81,31 @@ To find the IP of a container you can use:
 
     docker inspect projectname | grep IPAddress
 
+SSH into running container
+--------------------------
+
+To access a shell in the container, use SSH like this:
+
+    # replace 172.17.0.2 with the IP of your container
+    ssh webserver@172.17.0.2
+
+Access webserver of running container
+-------------------------------------
+
+Just open the container IP in your browser: (from the same computer that is running the docker container)
+
+    http://172.17.0.2
+
+For accessing the webserver from other devices in your LAN (for example from a mobile device) you can open a SSH tunnel to map a port:
+
+    # replace 172.17.0.2 with the IP of your container
+    ssh -f -N -L *:8080:localhost:80 webserver@172.17.0.2
+
+Then you should be able to access the webserver from other devices in your LAN by opening an URL like this:
+
+    # replace 10.0.0.123 with the LAN IP of the machine which is running the docker container
+    http://10.0.0.123:8080
+
 Manage images
 -------------
 
