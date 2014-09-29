@@ -89,6 +89,13 @@ To access a shell in the container, use SSH like this:
     # replace 172.17.0.2 with the IP of your container
     ssh webserver@172.17.0.2
 
+Your project folder (`/path/to/your-web-project` in the example commands above) will be mounted under `/var/www/webproject` in the container.
+
+So to execute command line tools (like for example `composer`) in your container, chdir into this folder:
+
+    cd /var/www/webproject
+    # then for example you can call: composer install -o
+
 Access webserver of running container
 -------------------------------------
 
