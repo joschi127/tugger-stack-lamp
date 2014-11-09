@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# exit on error
+set -e
+
+# set variables
+container_ip_address="$(hostname --ip-address)"
+
+# start services
+echo
+echo "Starting services ..."
+echo
+/etc/init.d/ssh restart
+/etc/init.d/mysql restart
+/etc/init.d/apache2 restart
+echo
+echo "Services started. Container IP is: $container_ip_address"
+echo
+echo "To SSH into the container use: ssh webserver@$container_ip_address"
+echo
+echo "The default password of the webserver user and the database root user is: qweqwe"
+echo
+
