@@ -6,6 +6,30 @@ set -e
 # set variables
 container_ip_address="$(hostname --ip-address)"
 
+# update user id of webserver user to the owner of this init script
+webserver_uid="$(stat -c "%u" "$0")"
+webserver_orig_uid="$(id -u webserver)"
+if [ "$webserver_uid" -lt "500" ] || [ "$webserver_uid" -gt "1999" ]
+then
+    echo "The tugger-stack 'init' script's owner user id will be used as user id for the webserver user in your"
+    echo "container. Please use the user id of your own local user to avoid permission issues. The user id has to be"
+    echo "between 500 and 1999."
+    exit 1
+fi
+if [ "$webserver_uid" != "$webserver_orig_uid" ]
+then
+    usermod -u $webserver_uid webserver
+    if test -e /var/lock/apache2; then
+        chown -R $webserver_uid /var/lock/apache2
+    fi
+    if test -e /var/cache/apache2; then
+        chown -R $webserver_uid /var/cache/apache2
+    fi
+    if test -e /var/lib/php5/session5; then
+        chown -R $webserver_uid /var/lib/php5/session5/*
+    fi
+fi
+
 # start services
 echo
 echo "Starting services ..."
@@ -20,4 +44,3 @@ echo "To SSH into the container use: ssh webserver@$container_ip_address"
 echo
 echo "The default password of the webserver user and the database root user is: qweqwe"
 echo
-
