@@ -4,7 +4,7 @@ MAINTAINER Joschi 127 "127.joschi@gmail.com"
 
 RUN apt-get -y update
 RUN apt-get -y upgrade
-RUN apt-get -y install build-essential libxml2-dev libxslt-dev git vim nano wget curl autoconf sudo openssh-server bash-completion
+RUN apt-get -y install build-essential python libxml2-dev libxslt-dev git vim nano wget curl autoconf sudo openssh-server bash-completion
 RUN adduser --disabled-password --gecos "" webserver
 RUN usermod -a -G sudo webserver
 RUN echo 'root:qweqwe'|chpasswd
