@@ -31,9 +31,7 @@ then
 fi
 
 # start services
-echo
-echo "Starting services ..."
-echo
+echo "Starting services..."
 /etc/init.d/ssh restart
 /etc/init.d/mysql restart
 /etc/init.d/apache2 restart
