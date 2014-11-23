@@ -6,7 +6,7 @@
     "server_name": "webproject.local",
     "server_aliases": [ "www.webproject.local" ],
     "docroot": "/var/www/webproject/web",
-    "packages": [ "vim", "git", "screen", "curl", "imagemagick" ]
+    "packages": [ "vim", "git", "screen", "curl", "pwgen", "imagemagick" ]
   },
   "mysql": {
     "server_root_password": "qweqwe",
