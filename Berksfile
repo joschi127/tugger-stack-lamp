@@ -10,5 +10,6 @@ cookbook 'openssl'
 cookbook 'php', git: 'https://github.com/priestjim/chef-php.git'
 cookbook 'composer'
 cookbook 'postfix'
+cookbook 'hostsfile'
 cookbook 'app', path: './site-cookbooks/app'
 

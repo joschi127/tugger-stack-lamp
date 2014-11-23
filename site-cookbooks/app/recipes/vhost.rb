@@ -20,3 +20,12 @@ end
 apache_site "000-default" do
   enable false
 end
+
+# Add server name and server aliases to /etc/hosts
+hostsfile_entry '127.0.0.1' do
+  hostname  'localhost'
+  aliases   [ node['app']['server_name'] ].concat( node['app']['server_aliases'] )
+  comment   'Updated by recipe vhost.rb'
+  unique    true
+  action    :append
+end

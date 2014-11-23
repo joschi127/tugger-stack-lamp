@@ -5,6 +5,7 @@ DEPENDENCIES
   apt
   build-essential
   composer
+  hostsfile
   memcached
   mysql
     git: https://github.com/haad/mysql.git
@@ -27,15 +28,18 @@ GRAPH
     apache (>= 0.0.0)
     apt (>= 0.0.0)
     composer (>= 0.0.0)
+    hostsfile (>= 0.0.0)
     mysql (>= 0.0.0)
     openssl (>= 0.0.0)
     php (>= 0.0.0)
   apt (2.6.0)
   build-essential (2.1.3)
   chef-sugar (2.4.1)
+  chef_handler (1.1.6)
   composer (1.0.6)
     php (>= 0.0.0)
     windows (>= 0.0.0)
+  hostsfile (2.4.5)
   iptables (0.14.0)
   logrotate (1.7.0)
   memcached (1.7.2)
@@ -67,6 +71,8 @@ GRAPH
     yum-epel (>= 0.0.0)
   supervisor (0.4.12)
     python (>= 0.0.0)
+  windows (1.34.8)
+    chef_handler (>= 0.0.0)
   xml (1.2.6)
     build-essential (>= 0.0.0)
     chef-sugar (>= 0.0.0)

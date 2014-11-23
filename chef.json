@@ -1,47 +1,57 @@
 {
-  "app": {
-    "name": "webproject",
-    "db_name": "webproject",
-    "db_dump": "/var/www/webproject/db_dump.sql",
-    "server_name": "webproject.local",
-    "server_aliases": [ "www.webproject.local" ],
-    "docroot": "/var/www/webproject/web",
-    "packages": [ "vim", "git", "screen", "curl", "pwgen", "imagemagick" ]
-  },
-  "mysql": {
-    "server_root_password": "qweqwe",
-    "server_repl_password": "qweqwe",
-    "server_debian_password": "qweqwe",
-    "bind_address": "127.0.0.1",
-    "allow_remote_root": false
-  },
-  "postgresql": {
-    "password": {
-      "postgres": "qweqwe"
+    "app": {
+        "name": "webproject",
+        "db_name": "webproject",
+        "db_dump": "/var/www/webproject/db_dump.sql",
+        "server_name": "webproject.local",
+        "server_aliases": ["www.webproject.local"],
+        "docroot": "/var/www/webproject/web",
+        "packages": [
+            "vim",
+            "git",
+            "screen",
+            "curl",
+            "pwgen",
+            "imagemagick"
+        ]
     },
-    "users": [
-      {
-        "username": "root",
-        "password": "qweqwe",
-        "superuser": true,
-        "createdb": true,
-        "login": true
-      }
+    "hostsfile": {
+        "path": "/tugger/etc_hosts_extra"
+    },
+    "mysql": {
+        "server_root_password": "qweqwe",
+        "server_repl_password": "qweqwe",
+        "server_debian_password": "qweqwe",
+        "bind_address": "127.0.0.1",
+        "allow_remote_root": false
+    },
+    "postgresql": {
+        "password": {
+            "postgres": "qweqwe"
+        },
+        "users": [
+            {
+                "username": "root",
+                "password": "qweqwe",
+                "superuser": true,
+                "createdb": true,
+                "login": true
+            }
+        ]
+    },
+    "php": {
+        "dotdeb_distribution": "wheezy-php55",
+        "tmpfs": false,
+        "ini_settings": {
+            "memory_limit": "1536M",
+            "short_open_tag": "Off"
+        }
+    },
+    "run_list": [
+        "recipe[app::packages]",
+        "recipe[app::web_server]",
+        "recipe[app::vhost]",
+        "recipe[memcached]",
+        "recipe[app::db]"
     ]
-  },
-  "php": {
-    "dotdeb_distribution": "wheezy-php55",
-    "tmpfs": false,
-    "ini_settings": {
-        "memory_limit": "1536M",
-        "short_open_tag": "Off"
-    }
-  },
-  "run_list": [
-    "recipe[app::packages]",
-    "recipe[app::web_server]",
-    "recipe[app::vhost]",
-    "recipe[memcached]",
-    "recipe[app::db]"
-  ]
 }

@@ -13,6 +13,7 @@ depends "apt"
 depends "openssl"
 depends "mysql"
 #depends "postgresql"
+depends "hostsfile"
 
 %w{ debian ubuntu }.each do |os|
   supports os
