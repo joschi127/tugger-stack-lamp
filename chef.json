@@ -86,6 +86,7 @@
         "recipe[app::db]",
         "recipe[java]",
         "recipe[nodejs]",
+        "recipe[nodejs::npm_packages]",
         "recipe[app::elasticsearch]"
     ]
 }
