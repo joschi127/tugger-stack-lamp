@@ -21,6 +21,8 @@ elasticsearch_install 'my_es_installation' do
   owner 'elasticsearch' # user and group to install under
   group 'elasticsearch'
   version '1.6.0'
+  source_url "https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.6.0.tar.gz"
+  source_checksum "dc336c83394b2f2f72f362e0f959a4cfdec2109aa3de15668401afeab0b02d2e"    # sha256sum
 
   action :install # could be :remove as well
 end
