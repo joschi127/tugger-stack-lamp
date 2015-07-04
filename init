@@ -35,6 +35,7 @@ echo "Starting services..."
 /etc/init.d/ssh restart
 /etc/init.d/mysql restart
 /etc/init.d/apache2 restart
-/etc/init.d/elasticsearch restart
+/etc/init.d/elasticsearch stop
+/etc/init.d/elasticsearch start
 echo "Services started."
 echo "The default password of the webserver user and the database root user is: qweqwe"
