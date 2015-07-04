@@ -13,6 +13,7 @@ depends "apt"
 depends "openssl"
 depends "mysql"
 #depends "postgresql"
+depends "chef-sugar"
 depends "elasticsearch"
 depends "hostsfile"
 
