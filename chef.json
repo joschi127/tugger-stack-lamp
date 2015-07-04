@@ -62,7 +62,7 @@
     },
     "nodejs": {
         "engine": "iojs",
-        "install_method": "binary",
+        "install_method": "source",
         "npm_packages": [
             {
                 "name": "bower"
