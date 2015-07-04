@@ -15,6 +15,7 @@ DEPENDENCIES
   mysql
     git: https://github.com/haad/mysql.git
     revision: 0ff1ec7214af1f0fcf0e52aef25b301cdb26b8c7
+  nodejs
   openssl
   php
     git: https://github.com/priestjim/chef-php.git
@@ -56,6 +57,8 @@ GRAPH
     curl (~> 2.0.1)
     poise (~> 2.0.1)
     yum (~> 3.6.1)
+  homebrew (1.13.0)
+    build-essential (>= 2.1.2)
   hostsfile (2.4.5)
   java (1.31.0)
   memcached (1.7.2)
@@ -65,6 +68,12 @@ GRAPH
   mysql (5.6.1)
     supervisor (>= 0.0.0)
     yum-mysql-community (>= 0.0.0)
+  nodejs (2.4.0)
+    apt (>= 0.0.0)
+    ark (>= 0.0.0)
+    build-essential (>= 0.0.0)
+    homebrew (>= 0.0.0)
+    yum-epel (>= 0.0.0)
   openssl (4.2.0)
     chef-sugar (>= 0.0.0)
   packagecloud (0.0.19)

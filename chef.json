@@ -59,6 +59,10 @@
             "accept_oracle_download_terms": true
         }
     },
+    "nodejs": {
+        "engine": "node",
+        "install_method": "package"
+    },
     "run_list": [
         "recipe[app::packages]",
         "recipe[app::web_server]",
@@ -66,6 +70,7 @@
         "recipe[memcached]",
         "recipe[app::db]",
         "recipe[java]",
+        "recipe[nodejs]",
         "recipe[app::elasticsearch]"
     ]
 }
