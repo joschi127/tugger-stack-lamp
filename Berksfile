@@ -1,3 +1,5 @@
+Encoding.default_external = "UTF-8"
+
 source "https://api.berkshelf.com"
 
 cookbook 'apache2'
