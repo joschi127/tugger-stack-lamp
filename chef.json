@@ -51,12 +51,21 @@
             "short_open_tag": "Off"
         }
     },
+    "java": {
+        "install_flavor": "openjdk",
+        "jdk_version": "7",
+        "accept_license_agreement": true,
+        "oracle": {
+            "accept_oracle_download_terms": true
+        }
+    },
     "run_list": [
         "recipe[app::packages]",
         "recipe[app::web_server]",
         "recipe[app::vhost]",
         "recipe[memcached]",
         "recipe[app::db]",
+        "recipe[java]",
         "recipe[app::elasticsearch]"
     ]
 }

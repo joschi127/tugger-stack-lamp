@@ -10,6 +10,7 @@ DEPENDENCIES
     revision: f206b836473f291ecfca678c4ffbb4dfd187bbfe
     tag: f206b836473f291ecfca678c4ffbb4dfd187bbfe
   hostsfile
+  java
   memcached
   mysql
     git: https://github.com/haad/mysql.git
@@ -56,6 +57,7 @@ GRAPH
     poise (~> 2.0.1)
     yum (~> 3.6.1)
   hostsfile (2.4.5)
+  java (1.31.0)
   memcached (1.7.2)
     runit (~> 1.0)
     yum (~> 3.0)
