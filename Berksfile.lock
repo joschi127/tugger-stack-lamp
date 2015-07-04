@@ -6,6 +6,9 @@ DEPENDENCIES
   build-essential
   composer
   elasticsearch
+    git: https://github.com/elastic/cookbook-elasticsearch.git
+    revision: f206b836473f291ecfca678c4ffbb4dfd187bbfe
+    tag: f206b836473f291ecfca678c4ffbb4dfd187bbfe
   hostsfile
   memcached
   mysql
@@ -44,19 +47,19 @@ GRAPH
   composer (2.1.0)
     php (>= 0.0.0)
     windows (>= 0.0.0)
-  elasticsearch (0.3.13)
-    ark (>= 0.2.4)
-    build-essential (>= 0.0.0)
-    java (>= 0.0.0)
-    monit (>= 0.0.0)
-    xml (>= 0.0.0)
+  curl (2.0.1)
+  elasticsearch (1.0.0)
+    apt (~> 2.7.0)
+    ark (~> 0.9.0)
+    chef-sugar (~> 3.1.0)
+    curl (~> 2.0.1)
+    poise (~> 2.0.1)
+    yum (~> 3.6.1)
   hostsfile (2.4.5)
-  java (1.31.0)
   memcached (1.7.2)
     runit (~> 1.0)
     yum (~> 3.0)
     yum-epel (>= 0.0.0)
-  monit (0.7.5)
   mysql (5.6.1)
     supervisor (>= 0.0.0)
     yum-mysql-community (>= 0.0.0)
@@ -68,6 +71,7 @@ GRAPH
     build-essential (>= 0.0.0)
     xml (>= 0.0.0)
     yum (>= 0.0.0)
+  poise (2.0.1)
   postfix (3.7.0)
   postgresql (3.4.16)
     apt (>= 1.9.0)
