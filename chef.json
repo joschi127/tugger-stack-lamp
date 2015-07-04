@@ -17,7 +17,8 @@
     },
     "apache": {
         "user": "webserver",
-        "group": "webserver"
+        "group": "webserver",
+        "mpm": "prefork"
     },
     "hostsfile": {
         "path": "/tugger/etc_hosts_extra"
