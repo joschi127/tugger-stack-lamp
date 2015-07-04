@@ -62,7 +62,13 @@
     },
     "nodejs": {
         "engine": "iojs",
-        "install_method": "source",
+        "install_method": "binary",
+        "version": "2.3.3",
+        "binary": {
+            "checksum": {
+                "linux_x64": "ff910d12c522514329e1fa21c6d24e96aefc4a361e5ef0386c676ad63d3c18e1"
+            }
+        },
         "npm_packages": [
             {
                 "name": "bower"
