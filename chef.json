@@ -60,8 +60,16 @@
         }
     },
     "nodejs": {
-        "engine": "node",
-        "install_method": "package"
+        "engine": "iojs",
+        "install_method": "package",
+        "npm_packages": [
+            {
+                "name": "bower"
+            },
+            {
+                "name": "zombie"
+            }
+        ]
     },
     "run_list": [
         "recipe[app::packages]",
