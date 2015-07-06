@@ -16,6 +16,8 @@ include_recipe "apache2::mod_rewrite"
 include_recipe "apache2::mod_ssl"
 include_recipe "apache2::mod_proxy"
 include_recipe "apache2::mod_proxy_http"
+include_recipe "apache2::mod_headers"
+include_recipe "apache2::mod_expires"
 
 # Install PHP
 directory "/etc/php5/conf.d" do
