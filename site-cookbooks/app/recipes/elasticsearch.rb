@@ -15,7 +15,7 @@ elasticsearch_user 'elasticsearch' do
 end
 
 elasticsearch_install 'my_es_installation' do
-  type :source # type of install
+  type :tarball # type of install
   dir '/usr/local' # where to install
   owner 'elasticsearch' # user and group to install under
   group 'elasticsearch'
