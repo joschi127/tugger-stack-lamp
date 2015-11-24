@@ -35,9 +35,5 @@ end
 #end
 
 elasticsearch_service 'elasticsearch' do
-  node_name 'webproject'
-  path_conf '/usr/local/etc/elasticsearch'
-  pid_path '/usr/local/var/run'
-  user 'elasticsearch'
-  group 'elasticsearch'
 end
+
