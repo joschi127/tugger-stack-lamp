@@ -8,7 +8,6 @@
 elasticsearch_user 'elasticsearch' do
   username 'elasticsearch'
   groupname 'elasticsearch'
-  homedir '/usr/local/elasticsearch'
   shell '/bin/bash'
   comment 'Elasticsearch User'
 
