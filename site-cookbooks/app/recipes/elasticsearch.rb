@@ -21,23 +21,7 @@ elasticsearch_install 'my_es_installation' do
 end
 
 elasticsearch_configure 'my_elasticsearch' do
-  dir '/usr/local'
-  user 'elasticsearch'
-  group 'elasticsearch'
   logging({:"action" => 'INFO'})
-
-  #allocated_memory '123m'
-  #thread_stack_size '512k'
-  #
-  #env_options '-DFOO=BAR'
-  #gc_settings <<-CONFIG
-  #              -XX:+UseParNewGC
-  #              -XX:+UseConcMarkSweepGC
-  #              -XX:CMSInitiatingOccupancyFraction=75
-  #              -XX:+UseCMSInitiatingOccupancyOnly
-  #              -XX:+HeapDumpOnOutOfMemoryError
-  #              -XX:+PrintGCDetails
-  #            CONFIG
 
   configuration ({
     'node.name' => 'webproject'
