@@ -16,8 +16,6 @@ end
 
 elasticsearch_install 'my_es_installation' do
   type :tarball # type of install
-  owner 'elasticsearch' # user and group to install under
-  group 'elasticsearch'
   dir '/usr/local' # where to install
 
   download_url "https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.7.2.tar.gz"
