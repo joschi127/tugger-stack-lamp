@@ -16,12 +16,13 @@ end
 
 elasticsearch_install 'my_es_installation' do
   type :tarball # type of install
-  dir :/usr/local' # where to install
   owner 'elasticsearch' # user and group to install under
   group 'elasticsearch'
-  version '1.6.0'
-  source_url "https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.6.0.tar.gz"
-  source_checksum "dc336c83394b2f2f72f362e0f959a4cfdec2109aa3de15668401afeab0b02d2e"    # sha256sum
+  dir '/usr/local' # where to install
+
+  download_url "https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.7.2.tar.gz"
+  # sha256
+  download_checksum "6f81935e270c403681e120ec4395c28b2ddc87e659ff7784608b86beb5223dd2"
 
   action :install # could be :remove as well
 end
