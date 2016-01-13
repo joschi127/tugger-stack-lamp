@@ -28,7 +28,10 @@
         "server_repl_password": "qweqwe",
         "server_debian_password": "qweqwe",
         "bind_address": "127.0.0.1",
-        "allow_remote_root": false
+        "allow_remote_root": false,
+        "mysqld_options": {
+            "max_allowed_packet": "512M"
+        }
     },
     "postgresql": {
         "password": {
