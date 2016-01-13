@@ -81,6 +81,23 @@
             }
         ]
     },
+    "ruby-install": {
+        "rubies": [
+            {
+                "ruby": "ruby 2.3.0",
+                "gems": [
+                    {
+                        "name": "sass",
+                        "version": "3.4.21"
+                    },
+                    {
+                        "name": "compass",
+                        "version": "0.12.4"
+                    }
+                ]
+            }
+        ]
+    },
     "run_list": [
         "recipe[app::packages]",
         "recipe[app::web_server]",
@@ -90,6 +107,8 @@
         "recipe[java]",
         "recipe[nodejs]",
         "recipe[nodejs::npm_packages]",
+        "recipe[ruby-install]",
+        "recipe[ruby-install::install]",
         "recipe[app::elasticsearch]"
     ]
 }

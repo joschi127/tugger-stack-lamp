@@ -7,6 +7,7 @@ cookbook 'apt'
 cookbook 'build-essential'
 cookbook 'java'
 cookbook 'nodejs'
+cookbook 'ruby-install'
 cookbook 'memcached'
 cookbook 'mysql', git: 'https://github.com/haad/mysql.git'  # fork fixed for docker, see https://github.com/opscode-cookbooks/mysql/issues/194
 cookbook 'postgresql'
