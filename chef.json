@@ -12,7 +12,8 @@
             "screen",
             "curl",
             "pwgen",
-            "imagemagick"
+            "imagemagick",
+            "zip"
         ]
     },
     "apache": {
