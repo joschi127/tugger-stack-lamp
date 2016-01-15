@@ -11,7 +11,7 @@ mysql_service 'default' do
   version '5.5'
   initial_root_password 'qweqwe'
   provider Chef::Provider::MysqlServiceSysvinit
-  action [:create]
+  action [:create, :start]
 end
 
 # Install PostgreSQL
