@@ -79,6 +79,9 @@
             },
             {
                 "name": "zombie"
+            },
+            {
+                "name": "bless"
             }
         ]
     },
