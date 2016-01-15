@@ -81,6 +81,15 @@
                 "name": "zombie"
             },
             {
+                "name": "grunt"
+            },
+            {
+                "name": "grunt-cli"
+            },
+            {
+                "name": "gulp"
+            },
+            {
                 "name": "bless"
             }
         ]
