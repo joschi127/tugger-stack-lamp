@@ -9,7 +9,7 @@ cookbook 'java'
 cookbook 'nodejs'
 cookbook 'ruby-install'
 cookbook 'memcached'
-cookbook 'mysql', git: 'https://github.com/haad/mysql.git'  # fork fixed for docker, see https://github.com/opscode-cookbooks/mysql/issues/194
+cookbook 'mysql'
 cookbook 'postgresql'
 cookbook 'elasticsearch', git: 'https://github.com/elastic/cookbook-elasticsearch.git', tag: 'v2.0.0'
 cookbook 'openssl'
@@ -18,4 +18,3 @@ cookbook 'composer'
 cookbook 'postfix'
 cookbook 'hostsfile'
 cookbook 'app', path: './site-cookbooks/app'
-
