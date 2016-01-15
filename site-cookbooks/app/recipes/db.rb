@@ -6,7 +6,13 @@
 #
 
 # Install MySQL server & MySQL client
-include_recipe "mysql::server"
+mysql_service 'default' do
+  port '3306'
+  version '5.5'
+  initial_root_password 'qweqwe'
+  provider Chef::Provider::MysqlServiceSysvinit
+  action [:create]
+end
 
 # Install PostgreSQL
 #include_recipe "postgresql::server"
