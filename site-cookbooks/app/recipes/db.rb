@@ -9,7 +9,9 @@
 mysql_service 'default' do
   port '3306'
   version '5.5'
-  initial_root_password 'qweqwe'
+  initial_root_password node['mysql']['server_root_password']
+  mysqld_options node['mysql']['mysqld_options']
+  socket '/var/run/mysqld/mysqld.sock'
   provider Chef::Provider::MysqlServiceSysvinit
   action [:create, :start]
 end
