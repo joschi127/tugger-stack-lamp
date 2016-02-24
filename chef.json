@@ -90,6 +90,12 @@
                 "name": "gulp"
             },
             {
+                "name": "gulp-cli"
+            },
+            {
+                "name": "jspm"
+            },
+            {
                 "name": "bless"
             }
         ]
