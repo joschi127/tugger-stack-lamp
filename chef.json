@@ -96,7 +96,8 @@
                 "name": "jspm"
             },
             {
-                "name": "bless"
+                "name": "bless",
+                "version": "3.0.3"
             }
         ]
     },
