@@ -71,6 +71,18 @@ bash "enable-xdebug" do
   endofstring
 end
 
+# Disable xdebug for composer
+bash "disable-xdebug-for-composer" do
+  code <<-endofstring
+    if ! grep -q "alias composer=" /home/webserver/.bashrc
+    then
+      echo >> /home/webserver/.bashrc
+      echo "# composer without xdebug" >> /home/webserver/.bashrc
+      echo "alias composer='COMPOSER_DISABLE_XDEBUG_WARN=1 php -d xdebug.remote_enable=0 -d xdebug.profiler_enable=0 -d xdebug.default_enable=0 /usr/local/bin/composer'" >> /home/webserver/.bashrc
+    fi
+  endofstring
+end
+
 # Fix php.ini, do not use disable_functions
 bash "fix-php-ini-disable-functions" do
   code "find /etc/php5/ -name 'php.ini' -exec sed -i -re 's/^(\\s*)disable_functions(.*)/\\1;disable_functions\\2/g' {} \\;"
