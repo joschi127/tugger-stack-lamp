@@ -60,15 +60,15 @@ php_pear "xdebug" do
   action :install
 end
 bash "enable-xdebug" do
-    code <<-endofstring
-        echo 'zend_extension=xdebug.so' > /etc/php5/mods-available/xdebug.ini
-        echo 'xdebug.remote_enable=On' >> /etc/php5/mods-available/xdebug.ini
-        echo 'xdebug.remote_connect_back=On' >> /etc/php5/mods-available/xdebug.ini
-        echo 'xdebug.remote_autostart=Off' >> /etc/php5/mods-available/xdebug.ini
-        echo 'xdebug.max_nesting_level=500' >> /etc/php5/mods-available/xdebug.ini
-        ln -sf /etc/php5/mods-available/xdebug.ini /etc/php5/apache2/conf.d/06-xdebug.ini
-        ln -sf /etc/php5/mods-available/xdebug.ini /etc/php5/cli/conf.d/06-xdebug.ini
-    endofstring
+  code <<-endofstring
+    echo 'zend_extension=xdebug.so' > /etc/php5/mods-available/xdebug.ini
+    echo 'xdebug.remote_enable=On' >> /etc/php5/mods-available/xdebug.ini
+    echo 'xdebug.remote_connect_back=On' >> /etc/php5/mods-available/xdebug.ini
+    echo 'xdebug.remote_autostart=Off' >> /etc/php5/mods-available/xdebug.ini
+    echo 'xdebug.max_nesting_level=500' >> /etc/php5/mods-available/xdebug.ini
+    ln -sf /etc/php5/mods-available/xdebug.ini /etc/php5/apache2/conf.d/06-xdebug.ini
+    ln -sf /etc/php5/mods-available/xdebug.ini /etc/php5/cli/conf.d/06-xdebug.ini
+  endofstring
 end
 
 # Fix php.ini, do not use disable_functions
