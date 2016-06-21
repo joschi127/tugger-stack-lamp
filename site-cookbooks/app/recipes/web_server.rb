@@ -29,6 +29,12 @@ include_recipe "apache2::mod_headers"
 include_recipe "apache2::mod_expires"
 
 # Install PHP
+directory "/etc/php5" do
+  owner "root"
+  group "root"
+  mode 00755
+  action :create
+end
 directory "/etc/php5/conf.d" do
   owner "root"
   group "root"
