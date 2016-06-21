@@ -25,7 +25,7 @@ directory "/etc/php5/conf.d" do
 end
 include_recipe "dotdeb"
 include_recipe "php"
-include_recipe "php::apache2"
+#include_recipe "php::apache2"
 include_recipe "php::module_opcache"
 include_recipe "php::module_gd"
 include_recipe "php::module_imap"
