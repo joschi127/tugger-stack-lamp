@@ -5,6 +5,13 @@
 # Copyright 2013, Mathias Hansen
 #
 
+# Add dotdeb apt repository
+apt_repository 'dotdeb-php' do
+  uri 'http://packages.dotdeb.org'
+  distribution node['app']['dotdeb_distribution']
+  components ['all']
+end
+
 # Install Apache
 include_recipe "openssl"
 include_recipe "apache2"
@@ -23,7 +30,6 @@ directory "/etc/php5/conf.d" do
   mode 00755
   action :create
 end
-include_recipe "dotdeb"
 include_recipe "php"
 #include_recipe "php::apache2"
 #include_recipe "php::module_opcache"

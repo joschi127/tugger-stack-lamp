@@ -5,7 +5,6 @@ DEPENDENCIES
   apt
   build-essential
   composer
-  dotdeb
   elasticsearch
     git: https://github.com/elastic/cookbook-elasticsearch.git
     revision: 39bcea55b3852dde54246186636c1a4f8e8c11fb
@@ -54,8 +53,6 @@ GRAPH
     php (>= 0.0.0)
     windows (>= 0.0.0)
   dmg (2.4.0)
-  dotdeb (1.1.4)
-    apt (>= 0.0.0)
   elasticsearch (2.0.0)
     apt (>= 0.0.0)
     ark (>= 0.0.0)

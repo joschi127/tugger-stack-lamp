@@ -6,6 +6,7 @@
         "server_name": "webproject.local",
         "server_aliases": ["www.webproject.local"],
         "docroot": "/var/www/webproject/web",
+        "dotdeb_distribution": "wheezy-php55",
         "packages": [
             "vim",
             "git",
@@ -50,10 +51,6 @@
     },
     "redisio": {
         "package_install": false
-    },
-    "dotdeb": {
-        "distribution": "wheezy",
-        "php_version": "5.5"
     },
     "php": {
         "tmpfs": false,
