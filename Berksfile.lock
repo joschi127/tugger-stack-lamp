@@ -20,6 +20,7 @@ DEPENDENCIES
     revision: 6fc411160b4125fbf9c0a540a426673cde9024c1
   postfix
   postgresql
+  redis
   ruby-install
 
 GRAPH
@@ -63,12 +64,14 @@ GRAPH
   homebrew (2.0.3)
     build-essential (>= 2.1.2)
   hostsfile (2.4.5)
+  install_from (3.0.4)
   java (1.39.0)
     apt (>= 0.0.0)
   memcached (2.0.2)
     compat_resource (>= 0.0.0)
     runit (~> 1.0)
     yum-epel (>= 0.0.0)
+  metachef (3.0.4)
   mysql (6.1.2)
     smf (>= 0.0.0)
     yum-mysql-community (>= 0.0.0)
@@ -92,6 +95,10 @@ GRAPH
     build-essential (>= 0.0.0)
     openssl (~> 4.0)
   rbac (1.0.3)
+  redis (3.0.4)
+    install_from (>= 0.0.0)
+    metachef (>= 0.0.0)
+    runit (>= 0.0.0)
   ruby-install (0.2.0)
     git (>= 0.0.0)
   runit (1.7.6)

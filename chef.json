@@ -48,6 +48,9 @@
             }
         ]
     },
+    "redis": {
+        "slave": "no"
+    },
     "php": {
         "dotdeb_distribution": "wheezy-php55",
         "tmpfs": false,
@@ -125,6 +128,7 @@
         "recipe[app::web_server]",
         "recipe[app::vhost]",
         "recipe[memcached]",
+        "recipe[redis]",
         "recipe[app::db]",
         "recipe[java]",
         "recipe[nodejs]",
