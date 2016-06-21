@@ -15,9 +15,7 @@ DEPENDENCIES
   mysql
   nodejs
   openssl
-  php
-    git: https://github.com/priestjim/chef-php.git
-    revision: 6fc411160b4125fbf9c0a540a426673cde9024c1
+  php (~> 1.9.0)
   postfix
   postgresql
   redis
@@ -68,6 +66,8 @@ GRAPH
   homebrew (2.1.0)
     build-essential (>= 2.1.2)
   hostsfile (2.4.5)
+  iis (4.1.8)
+    windows (>= 1.34.6)
   install_from (3.0.4)
   java (1.39.0)
     apt (>= 0.0.0)
@@ -91,11 +91,13 @@ GRAPH
   openssl (4.4.0)
     chef-sugar (>= 3.1.1)
   packagecloud (0.2.3)
-  php (1.2.3)
-    apt (>= 0.0.0)
+  php (1.9.0)
     build-essential (>= 0.0.0)
+    iis (>= 0.0.0)
+    mysql (>= 6.0.0)
+    windows (>= 1.39.1)
     xml (>= 0.0.0)
-    yum (>= 0.0.0)
+    yum-epel (>= 0.0.0)
   postfix (3.8.0)
   postgresql (4.0.6)
     apt (>= 1.9.0)
