@@ -10,6 +10,11 @@ apt_repository 'dotdeb-php' do
   uri 'http://packages.dotdeb.org'
   distribution node['app']['dotdeb_distribution']
   components ['all']
+  key 'dotdeb.gpg'
+  notifies :run, 'execute[apt-get update]', :immediately
+  action :nothing
+  retries 2
+  retry_delay 2
 end
 
 # Install Apache
