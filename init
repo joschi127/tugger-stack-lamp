@@ -37,7 +37,7 @@ service mysql-default restart
 service apache2 restart
 service elasticsearch stop
 service elasticsearch start
-service redis stop
-service redis start
+service redis-server stop
+service redis-server start
 echo "Services started."
 echo "The default password of the webserver user and the database root user is: qweqwe"

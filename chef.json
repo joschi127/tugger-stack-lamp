@@ -124,11 +124,12 @@
         ]
     },
     "run_list": [
+        "recipe[runit]",
         "recipe[app::packages]",
         "recipe[app::web_server]",
         "recipe[app::vhost]",
         "recipe[memcached]",
-        "recipe[redis]",
+        "recipe[redis::server]",
         "recipe[app::db]",
         "recipe[java]",
         "recipe[nodejs]",

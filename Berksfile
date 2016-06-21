@@ -2,6 +2,7 @@ Encoding.default_external = "UTF-8"
 
 source "https://api.berkshelf.com"
 
+cookbook 'runit'
 cookbook 'apache2'
 cookbook 'apt'
 cookbook 'build-essential'
