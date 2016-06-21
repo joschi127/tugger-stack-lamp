@@ -23,7 +23,7 @@ directory "/etc/php5/conf.d" do
   mode 00755
   action :create
 end
-include_recipe "php::dotdeb"
+include_recipe "dotdeb"
 include_recipe "php"
 include_recipe "php::apache2"
 include_recipe "php::module_opcache"
