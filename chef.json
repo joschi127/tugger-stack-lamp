@@ -129,7 +129,6 @@
         "recipe[app::packages]",
         "recipe[app::web_server]",
         "recipe[app::vhost]",
-        "recipe[memcached]",
         "recipe[redisio]",
         "recipe[redisio::enable]",
         "recipe[app::db]",
