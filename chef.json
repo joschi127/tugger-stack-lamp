@@ -48,8 +48,8 @@
             }
         ]
     },
-    "redis": {
-        "slave": "no"
+    "redisio": {
+        "package_install": false
     },
     "dotdeb": {
         "distribution": "wheezy",
@@ -133,7 +133,8 @@
         "recipe[app::web_server]",
         "recipe[app::vhost]",
         "recipe[memcached]",
-        "recipe[redis::server]",
+        "recipe[redisio]",
+        "recipe[redisio::enable]",
         "recipe[app::db]",
         "recipe[java]",
         "recipe[nodejs]",
