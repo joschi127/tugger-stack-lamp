@@ -36,4 +36,3 @@ end
 
 elasticsearch_service 'elasticsearch' do
 end
-

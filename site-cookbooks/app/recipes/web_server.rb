@@ -3,6 +3,7 @@
 # Recipe:: web_server
 #
 # Copyright 2013, Mathias Hansen
+# Copyright 2015, joschi127
 #
 
 # Add dotdeb apt repository
@@ -10,17 +11,13 @@ apt_repository 'dotdeb-php' do
   uri 'http://packages.dotdeb.org'
   distribution node['app']['dotdeb_distribution']
   components ['all']
-  key 'dotdeb.gpg'
+  key "https://www.dotdeb.org/dotdeb.gpg"
   notifies :run, 'execute[apt-get update]', :immediately
-  action :nothing
-  retries 2
-  retry_delay 2
 end
 
 # Install Apache
 include_recipe "openssl"
 include_recipe "apache2"
-#include_recipe "apache2::mod_php5"
 include_recipe "apache2::mod_rewrite"
 include_recipe "apache2::mod_ssl"
 include_recipe "apache2::mod_proxy"
@@ -29,27 +26,8 @@ include_recipe "apache2::mod_headers"
 include_recipe "apache2::mod_expires"
 
 # Install PHP
-directory "/etc/php5" do
-  owner "root"
-  group "root"
-  mode 00755
-  action :create
-end
-directory "/etc/php5/conf.d" do
-  owner "root"
-  group "root"
-  mode 00755
-  action :create
-end
 include_recipe "php"
-#include_recipe "php::apache2"
-#include_recipe "php::module_opcache"
 include_recipe "php::module_gd"
-#include_recipe "php::module_imap"
-#include_recipe "php::module_intl"
-#include_recipe "php::module_mbstring"
-#include_recipe "php::module_mcrypt"
-#include_recipe "php::module_memcache"
 include_recipe "php::module_mysql"
 include_recipe "php::module_pgsql"
 include_recipe "php::module_sqlite3"
@@ -57,32 +35,22 @@ include_recipe "php::module_curl"
 #include_recipe "php::module_xml"
 #include_recipe "php::module_soap"
 include_recipe "php::module_ldap"
+include_recipe "apache2::mod_php5"
 
-# update the main pear channel
-php_pear_channel 'pear.php.net' do
-  action :update
-end
-
-# pear install imagick
-['imagemagick', 'php5-imagick'].each do |a_package|
+# Install extra php packages
+['imagemagick', 'php5-imagick', 'php5-intl', 'php5-imap', 'php5-mcrypt', 'php5-memcache', 'php5-redis', 'php5-xdebug', 'php5-dev'].each do |a_package|
   package a_package
 end
 
-# pear install xdebug
-php_pear "xdebug" do
-  # Specify that xdebug.so must be loaded as a zend extension
-  zend_extensions ['xdebug.so']
-  action :install
-end
-bash "enable-xdebug" do
+# Set xdebug extra options
+bash "set-xdebug-extra-options" do
   code <<-endofstring
-    echo 'zend_extension=xdebug.so' > /etc/php5/mods-available/xdebug.ini
-    echo 'xdebug.remote_enable=On' >> /etc/php5/mods-available/xdebug.ini
-    echo 'xdebug.remote_connect_back=On' >> /etc/php5/mods-available/xdebug.ini
-    echo 'xdebug.remote_autostart=Off' >> /etc/php5/mods-available/xdebug.ini
-    echo 'xdebug.max_nesting_level=500' >> /etc/php5/mods-available/xdebug.ini
-    ln -sf /etc/php5/mods-available/xdebug.ini /etc/php5/apache2/conf.d/06-xdebug.ini
-    ln -sf /etc/php5/mods-available/xdebug.ini /etc/php5/cli/conf.d/06-xdebug.ini
+    echo 'xdebug.remote_enable=On' > /etc/php5/mods-available/xdebug-extra-options.ini
+    echo 'xdebug.remote_connect_back=On' >> /etc/php5/mods-available/xdebug-extra-options.ini
+    echo 'xdebug.remote_autostart=Off' >> /etc/php5/mods-available/xdebug-extra-options.ini
+    echo 'xdebug.max_nesting_level=500' >> /etc/php5/mods-available/xdebug-extra-options.ini
+    ln -sf /etc/php5/mods-available/xdebug-extra-options.ini /etc/php5/apache2/conf.d/99-xdebug-extra-options.ini
+    ln -sf /etc/php5/mods-available/xdebug-extra-options.ini /etc/php5/cli/conf.d/99-xdebug-extra-options.ini
   endofstring
 end
 
@@ -104,6 +72,21 @@ bash "fix-php-ini-disable-functions" do
   notifies :restart, resources("service[apache2]"), :delayed
 end
 
+# Set php ini settings
+execute "ini-settings-init" do
+  command "echo -n > /etc/php5/mods-available/chef-ini-settings.ini"
+end
+node['php']['ini_settings'].each do |key, value|
+  execute "ini-settings-add-#{key}" do
+    command "echo '#{key} = #{value}' >> /etc/php5/mods-available/chef-ini-settings.ini"
+  end
+end
+bash "ini-settings-enable" do
+  code <<-endofstring
+    ln -sf /etc/php5/mods-available/chef-ini-settings.ini /etc/php5/apache2/conf.d/99-chef-ini-settings.ini
+    ln -sf /etc/php5/mods-available/chef-ini-settings.ini /etc/php5/cli/conf.d/99-chef-ini-settings.ini
+  endofstring
+end
+
 # Install Composer
 include_recipe "composer"
-

@@ -3,6 +3,7 @@
 # Recipe:: vhost
 #
 # Copyright 2013, Mathias Hansen
+# Copyright 2015, joschi127
 #
 
 # Define app name

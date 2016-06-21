@@ -3,6 +3,7 @@
 # Recipe:: db
 #
 # Credits: David Stanley (https://github.com/davidstanley01/vagrant-chef/)
+# Copyright 2015, joschi127
 #
 
 # Install MySQL server & MySQL client
