@@ -5,9 +5,6 @@
 # Copyright 2013, Mathias Hansen
 #
 
-# Makes sure apt is up to date
-include_recipe "apt"
-
 # Install Apache
 include_recipe "openssl"
 include_recipe "apache2"

@@ -124,6 +124,7 @@
         ]
     },
     "run_list": [
+        "recipe[apt]",
         "recipe[runit]",
         "recipe[app::packages]",
         "recipe[app::web_server]",
