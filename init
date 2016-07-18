@@ -34,7 +34,11 @@ fi
 echo "Starting services..."
 service ssh restart
 service mysql-default restart
-service apache2 restart
+if test -e /var/run/apache2.pid
+then
+    rm /var/run/apache2.pid
+fi
+service apache2 start
 service elasticsearch stop
 service elasticsearch start
 if test -e /var/run/redis/6379/redis_6379.pid
