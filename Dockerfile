@@ -10,6 +10,6 @@ RUN usermod -a -G sudo webserver
 RUN echo 'root:qweqwe'|chpasswd
 RUN echo 'webserver:qweqwe'|chpasswd
 
-RUN curl -L https://www.chef.io/chef/install.sh | bash -s -- -v 12.4.0
+RUN curl -L https://www.chef.io/chef/install.sh | bash -s -- -v 12.14.60
 RUN echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 RUN /opt/chef/embedded/bin/gem install berkshelf
