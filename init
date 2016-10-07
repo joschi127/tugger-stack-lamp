@@ -34,6 +34,14 @@ fi
 echo "Starting services..."
 service ssh restart
 service mysql-default restart
+if test -e /var/run/apache2.pid
+then
+    # remove apache2 pid file after unclean shut down if no process running
+    if [ "$(pgrep apache2 | wc -l)" == "0" ]
+    then
+        rm /var/run/apache2.pid
+    fi
+fi
 service apache2 restart
 service elasticsearch stop
 service elasticsearch start
