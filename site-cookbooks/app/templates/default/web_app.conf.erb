@@ -22,6 +22,10 @@
   php_flag log_errors on
   php_value error_log  <%= @node[:apache][:log_dir] %>/<%= @params[:name] %>-phperrors.log
 
+  # allow to forward to https target via proxy rewrite rule [P]
+  SSLProxyEngine On
+  RequestHeader set Front-End-Https "On"
+
   LogLevel info
   ErrorLog <%= @node[:apache][:log_dir] %>/<%= @params[:name] %>-error.log
   CustomLog <%= @node[:apache][:log_dir] %>/<%= @params[:name] %>-access.log combined
@@ -51,6 +55,10 @@
   php_flag html_errors on
   php_flag log_errors on
   php_value error_log  <%= @node[:apache][:log_dir] %>/<%= @params[:name] %>-phperrors.log
+
+  # allow to forward to https target via proxy rewrite rule [P]
+  SSLProxyEngine On
+  RequestHeader set Front-End-Https "On"
 
   LogLevel info
   ErrorLog <%= @node[:apache][:log_dir] %>/<%= @params[:name] %>-error.log
