@@ -86,10 +86,6 @@
                 "name": "bower"
             },
             {
-                "name": "zombie",
-                "version": "2.5.1"
-            },
-            {
                 "name": "grunt"
             },
             {
