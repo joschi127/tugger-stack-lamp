@@ -6,7 +6,7 @@ version           "1.0.0"
 
 recipe "app", "Main entry point for installing and configuring a dead-simple LAMP stack"
 
-depends "apache"
+depends "apache2"
 depends "php"
 depends "composer"
 depends "apt"
