@@ -49,7 +49,7 @@ bash "set-xdebug-extra-options" do
     echo 'xdebug.remote_connect_back=On' >> /etc/php5/mods-available/xdebug-extra-options.ini
     echo 'xdebug.remote_autostart=Off' >> /etc/php5/mods-available/xdebug-extra-options.ini
     echo 'xdebug.max_nesting_level=500' >> /etc/php5/mods-available/xdebug-extra-options.ini
-    echo 'xdebug.var_display_max_depth=5' >> /etc/php5/mods-available/xdebug-extra-options.ini
+    echo 'xdebug.var_display_max_depth=8' >> /etc/php5/mods-available/xdebug-extra-options.ini
     echo 'xdebug.var_display_max_children=256' >> /etc/php5/mods-available/xdebug-extra-options.ini
     echo 'xdebug.var_display_max_data=1024' >> /etc/php5/mods-available/xdebug-extra-options.ini
     ln -sf /etc/php5/mods-available/xdebug-extra-options.ini /etc/php5/apache2/conf.d/99-xdebug-extra-options.ini
