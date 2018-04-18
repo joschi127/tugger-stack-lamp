@@ -15,7 +15,7 @@ elasticsearch_user 'elasticsearch' do
 end
 
 elasticsearch_install 'my_es_installation' do
-  type :tarball # type of install
+  type 'tarball' # type of install
   version '1.7.2'
   action :install # could be :remove as well
 end
