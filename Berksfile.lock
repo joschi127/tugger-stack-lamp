@@ -7,8 +7,8 @@ DEPENDENCIES
   composer
   elasticsearch
     git: https://github.com/elastic/cookbook-elasticsearch.git
-    revision: bcba075357a7fa2d7604482f5777794a08772b79
-    tag: v4.0.0
+    revision: 3720c64afdf52b8c624f43b84eb06ecb982df4ed
+    tag: v3.2.0
   hostsfile
   java
   mysql
