@@ -13,4 +13,4 @@ RUN echo 'webserver:qweqwe'|chpasswd
 # chef version is given in tugger 'lib/tugger-container-init/provision' and in tugger-stack 'Dockerfile'
 RUN curl -L https://www.chef.io/chef/install.sh | bash -s -- -v 12.21.1
 RUN echo "gem: --no-ri --no-rdoc" > ~/.gemrc
-RUN /opt/chef/embedded/bin/gem install berkshelf
+RUN /opt/chef/embedded/bin/gem install berkshelf -v 6.3.2
